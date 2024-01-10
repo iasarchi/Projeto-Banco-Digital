@@ -58,3 +58,4 @@
 **Passo 10: Implementar Medidas de Segurança**
 
 - Adicione medidas de segurança para proteger os dados sensíveis dos clientes, como criptografia, autenticação segura e auditorias regulares.
+teste
