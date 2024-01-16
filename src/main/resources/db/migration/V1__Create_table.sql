@@ -1,7 +1,7 @@
 -- Tabela de Clientes
 CREATE TABLE clientes
 (
-    cliente_id      SERIAL PRIMARY KEY,
+    cliente_id      VARCHAR PRIMARY KEY,
     nome            VARCHAR(100),
     cpf             VARCHAR(11) UNIQUE,
     data_nascimento DATE,
@@ -12,8 +12,8 @@ CREATE TABLE clientes
 -- Tabela de Contas
 CREATE TABLE contas
 (
-    conta_id        SERIAL PRIMARY KEY,
-    cliente_id      INT,
+    conta_id        VARCHAR PRIMARY KEY,
+    cliente_id      VARCHAR,
     tipo_conta      VARCHAR(20) CHECK (tipo_conta IN ('Corrente', 'Poupanca')),
     saldo           DECIMAL(10, 2),
     taxa_manutencao DECIMAL(5, 2), -- Para conta corrente
@@ -24,8 +24,8 @@ CREATE TABLE contas
 -- Tabela de Cartões
 CREATE TABLE cartoes
 (
-    cartao_id      SERIAL PRIMARY KEY,
-    conta_id       INT,
+    cartao_id      VARCHAR PRIMARY KEY,
+    conta_id       VARCHAR,
     tipo_cartao    VARCHAR(20) CHECK (tipo_cartao IN ('Credito', 'Debito')),
     limite_credito DECIMAL(10, 2), -- Para cartões de crédito
     limite_diario  DECIMAL(10, 2), -- Para cartões de débito
@@ -36,8 +36,8 @@ CREATE TABLE cartoes
 -- Tabela de Transações
 CREATE TABLE transacoes
 (
-    transacao_id   SERIAL PRIMARY KEY,
-    cartao_id      INT,
+    transacao_id   VARCHAR PRIMARY KEY,
+    cartao_id      VARCHAR,
     valor          DECIMAL(10, 2),
     data_transacao TIMESTAMP,
     FOREIGN KEY (cartao_id) REFERENCES cartoes (cartao_id)
@@ -46,8 +46,8 @@ CREATE TABLE transacoes
 -- Tabela de Seguros
 CREATE TABLE seguros
 (
-    seguro_id        SERIAL PRIMARY KEY,
-    cartao_id        INT,
+    seguro_id        VARCHAR PRIMARY KEY,
+    cartao_id        VARCHAR,
     numero_apolice   VARCHAR(20),
     data_contratacao DATE,
     valor_apolice    DECIMAL(10, 2),

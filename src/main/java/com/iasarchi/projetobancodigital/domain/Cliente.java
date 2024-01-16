@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iasarchi.projetobancodigital.dto.ClienteRequestDto;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Table(name = "clientes")
 @Entity(name = "clientes")
@@ -16,15 +18,14 @@ import java.util.Date;
 public class Cliente {
     @Getter
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @Column
     private String nome;
     @Column
     private String cpf;
     @Column
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     @Column
     private String endereco;
     @Column
