@@ -1,4 +1,4 @@
-package com.iasarchi.projetobancodigital.dto;
+package com.iasarchi.projetobancodigital.dto.clienteDto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;

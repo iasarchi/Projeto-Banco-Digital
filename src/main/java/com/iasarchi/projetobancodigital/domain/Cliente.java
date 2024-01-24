@@ -1,13 +1,11 @@
 package com.iasarchi.projetobancodigital.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.iasarchi.projetobancodigital.dto.ClienteRequestDto;
+import com.iasarchi.projetobancodigital.dto.clienteDto.ClienteRequestDto;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
-import java.util.Date;
+
 @Table(name = "clientes")
 @Entity(name = "clientes")
 @Getter
